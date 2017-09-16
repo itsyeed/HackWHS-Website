@@ -6,7 +6,10 @@ const User = require('../models/User');
 
 describe('User Model', () => {
   it('should create a new user', (done) => {
-    const UserMock = sinon.mock(new User({ email: 'test@gmail.com', password: 'root' }));
+    const UserMock = sinon.mock(new User({
+      email: 'test@gmail.com',
+      password: 'root',
+    }));
     const user = UserMock.object;
 
     UserMock
@@ -22,10 +25,13 @@ describe('User Model', () => {
   });
 
   it('should return error if user is not created', (done) => {
-    const UserMock = sinon.mock(new User({ email: 'test@gmail.com', password: 'root' }));
+    const UserMock = sinon.mock(new User({
+      email: 'test@gmail.com',
+      password: 'root',
+    }));
     const user = UserMock.object;
     const expectedError = {
-      name: 'ValidationError'
+      name: 'ValidationError',
     };
 
     UserMock
@@ -42,11 +48,14 @@ describe('User Model', () => {
   });
 
   it('should not create a user with the unique email', (done) => {
-    const UserMock = sinon.mock(User({ email: 'test@gmail.com', password: 'root' }));
+    const UserMock = sinon.mock(User({
+      email: 'test@gmail.com',
+      password: 'root',
+    }));
     const user = UserMock.object;
     const expectedError = {
       name: 'MongoError',
-      code: 11000
+      code: 11000,
     };
 
     UserMock
@@ -67,7 +76,7 @@ describe('User Model', () => {
     const userMock = sinon.mock(User);
     const expectedUser = {
       _id: '5700a128bd97c1341d8fb365',
-      email: 'test@gmail.com'
+      email: 'test@gmail.com',
     };
 
     userMock
@@ -86,7 +95,7 @@ describe('User Model', () => {
   it('should remove user by email', (done) => {
     const userMock = sinon.mock(User);
     const expectedResult = {
-      nRemoved: 1
+      nRemoved: 1,
     };
 
     userMock

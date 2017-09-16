@@ -12,7 +12,8 @@
     "start": "node app.js",
     "test": "mocha --reporter spec",
     "postinstall": "npm rebuild node-sass",
-    "eslint": "eslint **/*.js"
+    "eslint": "eslint **/*.js",
+    "beautify": "eslint --fix ."
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
@@ -64,9 +65,10 @@
   },
   "devDependencies": {
     "chai": "^4.1.1",
-    "eslint": "^4.4.1",
+    "eslint": "^4.7.0",
     "eslint-config-airbnb-base": "^11.3.1",
     "eslint-plugin-chai-friendly": "^0.4.0",
+    "eslint-plugin-es-beautifier": "^1.0.1",
     "eslint-plugin-import": "^2.7.0",
     "mocha": "^3.5.0",
     "sinon": "^3.2.1",
