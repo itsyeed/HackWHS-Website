@@ -124,6 +124,10 @@ app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: 31557600000,
 }));
 
+app.use('/lib', express.static(path.join(__dirname, 'node_modules'), {
+  maxAge: 31557600000,
+}));
+
 /**
  * Primary app routes.
  */
